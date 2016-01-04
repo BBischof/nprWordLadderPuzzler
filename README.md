@@ -32,3 +32,76 @@ to create a length sorted list of lowercase words with no duplicates.
 I like the list to be length sorted ascendingly because it is easier to build the dictionary this way.
 
 I build the dictionary by removing each letter in the incoming line, and checking if the other letters form a word that is already in my dictionary. Since the incoming words are length sorted, if they're in the list, they'll already be in the dictionary. I then create a edge if so. Otherwise, I just add the new word as a node with no edges(this is to maintain that the graph has all words.) Finally, I run shortest path and print the length.
+
+## Usage
+
+The script takes two command line arguments: the two words you would like to find a ladder between. Order of the words doesn't matter since direction in this case is irrelevant.
+
+E.g.:
+```
+python wordLadderGraph.py life death
+```
+
+Sample Output:
+```
+['life', 'ife', 'fe', 'e', 'ea', 'ear', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'ea', 'ear', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'ea', 'ear', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'er', 'ear', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'er', 'ear', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'er', 'ear', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lifer', 'lier', 'ler', 'er', 'ear', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'lier', 'ler', 'er', 'ear', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lifer', 'lier', 'ler', 'lear', 'ear', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'lier', 'ler', 'lear', 'ear', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'er', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'er', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'er', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lifer', 'lier', 'ler', 'er', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'lier', 'ler', 'er', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'he', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'he', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'he', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'hie', 'he', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'hie', 'he', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lifer', 'lier', 'ler', 'hler', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'lier', 'ler', 'hler', 'her', 'hear', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'ea', 'eat', 'heat', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'ea', 'eat', 'heat', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'ea', 'eat', 'heat', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'fet', 'feat', 'eat', 'heat', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'he', 'het', 'heat', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'he', 'het', 'heat', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'he', 'het', 'heat', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'hie', 'he', 'het', 'heat', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'hie', 'he', 'het', 'heat', 'heart', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'ea', 'eat', 'heat', 'heath', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'ea', 'eat', 'heat', 'heath', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'ea', 'eat', 'heat', 'heath', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'fet', 'feat', 'eat', 'heat', 'heath', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'he', 'het', 'heat', 'heath', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'he', 'het', 'heat', 'heath', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'he', 'het', 'heat', 'heath', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'hie', 'he', 'het', 'heat', 'heath', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'hie', 'he', 'het', 'heat', 'heath', 'hearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'er', 'ber', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'er', 'ber', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'er', 'ber', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'lifer', 'lier', 'ler', 'er', 'ber', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'lier', 'ler', 'er', 'ber', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'be', 'ber', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'be', 'ber', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'be', 'ber', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'be', 'bet', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'be', 'bet', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'be', 'bet', 'bert', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'be', 'bet', 'beth', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'be', 'bet', 'beth', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'be', 'bet', 'beth', 'berth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'ye', 'yet', 'yeth', 'yerth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'ye', 'yet', 'yeth', 'yerth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'ye', 'yet', 'yeth', 'yerth', 'erth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'fe', 'e', 'ye', 'yet', 'yeth', 'yerth', 'yearth', 'earth', 'dearth', 'death'] 12
+['life', 'ife', 'ie', 'e', 'ye', 'yet', 'yeth', 'yerth', 'yearth', 'earth', 'dearth', 'death'] 12
+['life', 'lie', 'ie', 'e', 'ye', 'yet', 'yeth', 'yerth', 'yearth', 'earth', 'dearth', 'death'] 12
+```
