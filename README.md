@@ -10,6 +10,8 @@ Changing or rearranging letters is not allowed, neither are plurals or verbs for
 
 How many steps are needed to change WHOLE to HEART? I have my best answer. We'll compare results next week.
 
+Originally found [here.](http://www.npr.org/2016/01/03/461707406/o-say-can-you-see-what-the-2-blanks-might-be)
+
 ## Approach
 
 Take a standard list of english words, read in words, generate a graph where nodes are words and edges between two words exist if one word is simple one letter removal from the other. For example:
@@ -32,6 +34,8 @@ to create a length sorted list of lowercase words with no duplicates.
 I like the list to be length sorted ascendingly because it is easier to build the dictionary this way.
 
 I build the dictionary by removing each letter in the incoming line, and checking if the other letters form a word that is already in my dictionary. Since the incoming words are length sorted, if they're in the list, they'll already be in the dictionary. I then create a edge if so. Otherwise, I just add the new word as a node with no edges(this is to maintain that the graph has all words.) Finally, I run shortest path and print the length.
+
+For graphs, I use the convenient package [networkx](http://networkx.github.io/documentation/latest/overview.html)
 
 ## Usage
 
