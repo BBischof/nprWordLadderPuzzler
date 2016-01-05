@@ -1,6 +1,6 @@
 # NPR Puzzler Solution
 
-## Orignal Problem Statement
+## Original Problem Statement
 
 This is a variation on the old word ladder puzzle. The object is to change WHOLE to HEART by either adding or subtracting one letter at a time, making a new, common, uncapitalized word at each step.
 
@@ -35,7 +35,7 @@ I like the list to be length sorted ascendingly because it is easier to build th
 
 I build the dictionary by removing each letter in the incoming line, and checking if the other letters form a word that is already in my dictionary. Since the incoming words are length sorted, if they're in the list, they'll already be in the dictionary. I then create a edge if so. Otherwise, I just add the new word as a node with no edges(this is to maintain that the graph has all words.) Finally, I run shortest path and print the length.
 
-For graphs, I use the convenient package [networkx](http://networkx.github.io/documentation/latest/overview.html)
+For graphs, I use the convenient package [networkx.](http://networkx.github.io/documentation/latest/overview.html)
 
 ## Usage
 
